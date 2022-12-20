@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ChartShowCase from './ChartShowCase';
+// import ChartShowCase from './ChartShowCase';
 import ChartShowCaseTrial from './ChartShowCaseTrial';
 import StudentShowCase from './StudentShowCase';
 

@@ -15,19 +15,29 @@ import {
   VictoryChart,
   VictoryAxis,
   VictoryTheme,
-  VictoryTooltip,
-  VictoryLine,
-  VictoryGroup,
+  //   VictoryTooltip,
+  //   VictoryLine,
+  //   VictoryGroup,
 } from "victory";
 
-console.log(studentData.students);
-studentData.students.map((student) => console.log(student));
+const studentInfo = studentData.students.map((student) => {
+  console.log(student);
+  return student;
+});
+
 // All the students, select the subject I want
-let studentInfo = studentData.students.map((student) => student);
+// let data = studentData.students.map(student => student)
+
+// Map over de namen
+// const filteredNames = student.name
+// console.log(filteredNames)
+// Daarna; als naam === Evelyn, dan filter
 
 const data = [
-  console.log(studentInfo.difficulyRate),
-  { subject: studentInfo.subject, rate: studentInfo.difficulyRate },
+  { quarter: 1, earnings: 13000 },
+  { quarter: 2, earnings: 16500 },
+  { quarter: 3, earnings: 14250 },
+  { quarter: 4, earnings: 19000 },
 ];
 
 class ChartShowCaseTrial extends React.Component {
@@ -35,24 +45,25 @@ class ChartShowCaseTrial extends React.Component {
     return (
       <VictoryChart
         theme={VictoryTheme.material}
-        style={{ width: 500, height: 500 }}
+        style={{ width: 5, height: 5, padding: 2 }}
         // domainPadding will add space to each side of VictoryBar to
         // prevent it from overlapping the axis
-        domainPadding={100}
+        domainPadding={30}
       >
         <VictoryAxis
           // tickValues specifies both the number of ticks and where
           // they are placed on the axis
-          style={{ width: 100, height: 100 }}
+          style={{ width: 5, height: 5, padding: 2 }}
           tickValues={[1, 2, 3, 4]}
-          tickFormat={[studentInfo.subject]}
+          tickFormat={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
         />
         <VictoryAxis
+          style={{ width: 5, height: 5, padding: 2 }}
           dependentAxis
           // tickFormat specifies how ticks should be displayed
-        //   tickFormat={(x) => `$${x / 1000}k`}
+          tickFormat={(x) => `$${x / 1000}k`}
         />
-        <VictoryBar data={data} x={studentInfo.subject} y={studentInfo.difficulyRate} />
+        <VictoryBar data={data} x="quarter" y="earnings" />
       </VictoryChart>
     );
   }

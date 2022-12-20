@@ -979,7 +979,7 @@ const ChartShowCase = () => (
       <VictoryLine
         style={{
           data: { stroke: "#ff00ff" },
-          parent: { border: "1px solid #ccc" }
+          parent: { border: "10px solid #ccc" }
         }}
         data={assignmentRatingAverage}
         x="assignment"
